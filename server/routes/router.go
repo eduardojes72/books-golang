@@ -9,6 +9,10 @@ import (
 func ConfigRoutes(router *gin.Engine) *gin.Engine {
 	main := router.Group("api/v1")
 	{
+		users := main.Group("users")
+		{
+			users.POST("/", controllers.CreateUser)
+		}
 	}
 	return router
 }
